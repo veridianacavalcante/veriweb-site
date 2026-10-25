@@ -4,7 +4,7 @@
 export const WHATSAPP = "5511985774518";
 
 // TODO: confirmar que este e-mail existe (o domínio precisa estar configurado para receber).
-export const EMAIL = "contato@veriweb.com.br";
+export const EMAIL = "veri@veriweb.com.br";
 
 export const waLink = (msg: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
