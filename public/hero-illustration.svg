@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="520" viewBox="0 0 640 520" fill="none">
+  <defs>
+    <linearGradient id="outline" x1="118" y1="126" x2="455" y2="352" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10D9F0"/>
+      <stop offset="1" stop-color="#665BFF"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="139" y1="144" x2="441" y2="318" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#141D30"/>
+      <stop offset="1" stop-color="#10172A"/>
+    </linearGradient>
+    <linearGradient id="app" x1="440" y1="246" x2="513" y2="323" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17C9E5"/>
+      <stop offset="1" stop-color="#555CEB"/>
+    </linearGradient>
+    <linearGradient id="button" x1="157" y1="258" x2="253" y2="290" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18CDE8"/>
+      <stop offset="1" stop-color="#6265F5"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .hero-float {
+      animation: hero-float 6s ease-in-out infinite;
+    }
+    .orbit {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: orbit 36s linear infinite;
+    }
+    .badge {
+      animation: badge-glow 3s ease-in-out infinite;
+    }
+    .badge-delay {
+      animation-delay: 1s;
+    }
+    .badge-later {
+      animation-delay: 2s;
+    }
+    @keyframes hero-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes orbit {
+      to { stroke-dashoffset: 92; }
+    }
+    @keyframes badge-glow {
+      0%, 100% { stroke-opacity: 1; }
+      50% { stroke-opacity: .55; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-float, .orbit, .badge { animation: none; }
+    }
+  </style>
+  <g class="hero-float">
+  <circle class="orbit" cx="320" cy="260" r="214" stroke="#293957" stroke-width="3" stroke-dasharray="9 14"/>
+  <circle cx="320" cy="260" r="142" stroke="url(#outline)" stroke-opacity=".55" stroke-width="3"/>
+  <path d="m115 179-38-31m41 213-34 12m414-220 31-83" stroke="#675BFF" stroke-width="2" stroke-dasharray="6 7"/>
+  <path d="m155 347 57 58h182l56-58" stroke="url(#outline)" stroke-width="3" stroke-opacity=".65"/>
+  <rect x="120" y="116" width="354" height="234" rx="24" fill="#151D30" stroke="url(#outline)" stroke-width="4"/>
+  <rect x="142" y="139" width="310" height="166" rx="13" fill="#090F1D"/>
+  <rect x="161" y="163" width="147" height="14" rx="7" fill="#1CD2E8"/>
+  <rect x="161" y="190" width="219" height="11" rx="5.5" fill="#27344E"/>
+  <rect x="161" y="213" width="178" height="11" rx="5.5" fill="#27344E"/>
+  <rect x="161" y="249" width="97" height="38" rx="12" fill="url(#button)"/>
+  <path d="M243 350h108v15H243z" fill="#27344E"/>
+  <path d="M197 365h200l-13 13H210l-13-13Z" fill="#27344E"/>
+  <rect x="422" y="211" width="113" height="207" rx="23" fill="#111A2C" stroke="#16D4E8" stroke-width="4"/>
+  <rect x="440" y="238" width="77" height="82" rx="12" fill="url(#app)"/>
+  <rect x="440" y="333" width="77" height="13" rx="6.5" fill="#27344E"/>
+  <circle cx="478" cy="391" r="7" fill="#16D4E8"/>
+  <circle class="badge" cx="75" cy="148" r="29" fill="#121A2E" stroke="#665BFF" stroke-width="3"/>
+  <path d="m63 146 7-7m-7 7 7 7m18-14-7 7 7 7" stroke="#16D4E8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="badge badge-delay" cx="87" cy="371" r="29" fill="#121A2E" stroke="#665BFF" stroke-width="3"/>
+  <text x="87" y="377" fill="#16D4E8" font-family="Arial, sans-serif" font-size="17" font-weight="600" text-anchor="middle">AI</text>
+  <circle class="badge badge-later" cx="542" cy="63" r="29" fill="#121A2E" stroke="#665BFF" stroke-width="3"/>
+  <path d="m545 47-11 18h8l-2 14 11-19h-8l2-13Z" fill="#FFAA49"/>
+  </g>
+</svg>
