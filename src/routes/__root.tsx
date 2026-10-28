@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
+import { faqs } from "../lib/content";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -68,9 +69,45 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "VERIWEB · Seu negócio mais forte no virtual" },
+      { title: "VERIWEB | Software House: sites, apps, SaaS, ERP e IA" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "VERIWEB" },
+      { property: "og:locale", content: "pt_BR" },
+      {
+        "script:ld+json": {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "ProfessionalService",
+              name: "VERIWEB",
+              alternateName: "VERIWEB Software House",
+              url: "https://www.veriweb.com.br/",
+              slogan: "Seu negócio mais forte no virtual",
+              description:
+                "Estúdio virtual e software house 100% online: sites, aplicativos, software personalizado, SaaS, ERP, agentes de IA e automação.",
+              email: "veri@veriweb.com.br",
+              telephone: "+55 11 98577-4518",
+              areaServed: "BR",
+              sameAs: [
+                "https://www.instagram.com/veri.web/",
+                "https://www.linkedin.com/company/veri-web/",
+                "https://www.facebook.com/webveri/",
+              ],
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: faqs.map(([name, text]) => ({
+                "@type": "Question",
+                name,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text,
+                },
+              })),
+            },
+          ],
+        },
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -83,6 +120,7 @@ export const Route = createRootRoute({
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "canonical", href: "https://www.veriweb.com.br/" },
     ],
   }),
   shellComponent: RootShell,

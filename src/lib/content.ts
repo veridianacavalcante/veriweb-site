@@ -5,6 +5,7 @@ import {
   Cloud,
   Bot,
   Boxes,
+  Network,
   Search,
   FileText,
   Rocket,
@@ -26,9 +27,9 @@ type Item = { icon: LucideIcon; t: string; d: string };
 
 export const services: Item[] = [
   {
-    icon: Globe,
-    t: "Desenvolvimento Web",
-    d: "Sites institucionais, landing pages e e-commerces rápidos e otimizados.",
+    icon: Bot,
+    t: "Agentes de IA",
+    d: "Assistentes inteligentes que atendem clientes, respondem dúvidas e executam tarefas no seu negócio.",
   },
   {
     icon: Smartphone,
@@ -36,13 +37,27 @@ export const services: Item[] = [
     d: "Apps para iOS e Android com experiência fluida e nativa.",
   },
   {
+    icon: Bot,
+    t: "Automação",
+    d: "Integrações e fluxos que eliminam trabalho manual e reduzem erros nos seus processos.",
+  },
+  {
+    icon: Globe,
+    t: "Desenvolvimento Web",
+    d: "Sites institucionais, landing pages e e-commerces rápidos e otimizados.",
+  },
+  { icon: Boxes, t: "ERP", d: "Sistemas de gestão empresarial personalizados para sua operação." },
+  {
+    icon: Network,
+    t: "Integração de Sistemas",
+    d: "Conectamos sistemas e plataformas para automatizar processos e simplificar operações.",
+  },
+  { icon: Cloud, t: "SaaS", d: "Plataformas de software como serviço, escaláveis e seguras." },
+  {
     icon: Code2,
     t: "Software Personalizado",
     d: "Soluções sob medida para os processos específicos da sua empresa.",
   },
-  { icon: Cloud, t: "SaaS", d: "Plataformas de software como serviço, escaláveis e seguras." },
-  { icon: Bot, t: "Automação e IA", d: "Automação de processos, integrações e agentes de IA." },
-  { icon: Boxes, t: "ERP", d: "Sistemas de gestão empresarial personalizados para sua operação." },
 ];
 
 export const steps: Item[] = [
@@ -53,6 +68,18 @@ export const steps: Item[] = [
 ];
 
 export const faqs: [string, string][] = [
+  [
+    "O que é uma software house?",
+    "É uma empresa especializada em criar software sob encomenda, como sistemas, aplicativos, sites e plataformas. A VERIWEB faz isso de forma 100% online, do diagnóstico ao suporte depois do lançamento.",
+  ],
+  [
+    "Quanto custa desenvolver um software sob medida?",
+    "Depende do que o seu negócio precisa. Por isso o orçamento é gratuito: entendemos o seu projeto e entregamos uma proposta com escopo, prazo e investimento detalhados, sem surpresas no meio do caminho.",
+  ],
+  [
+    "A VERIWEB atende empresas de qualquer cidade?",
+    "Sim. Todo o projeto é feito online, por videochamada, WhatsApp e e-mail, então atendemos empresas de qualquer lugar do Brasil.",
+  ],
   [
     "Como funciona o atendimento online?",
     "Todo o projeto é feito de forma 100% digital, por videochamadas, WhatsApp e e-mail. Assim, você acompanha cada etapa de onde estiver, com total comodidade e sem precisar se deslocar.",
