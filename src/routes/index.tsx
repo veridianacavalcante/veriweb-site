@@ -12,19 +12,39 @@ import { EMAIL, phoneLabel, waLink } from "../lib/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "VERIWEB · Sites, apps, SaaS, ERP e automação sob medida" },
+      { title: "VERIWEB | Software House: sites, apps, SaaS, ERP e IA" },
       {
         name: "description",
         content:
-          "Estúdio digital 100% online: sites, aplicativos, software personalizado, SaaS, ERP e agentes de IA com entrega rápida.",
+          "Estúdio virtual e software house 100% online: sites, aplicativos, software personalizado, SaaS, ERP, agentes de IA e automação. Orçamento gratuito.",
       },
-      { property: "og:title", content: "VERIWEB · Seu negócio mais forte no virtual" },
+      { property: "og:title", content: "Software house: Soluções sob medida para o seu negócio" },
       {
         property: "og:description",
-        content: "Soluções digitais sob medida: sites, apps, SaaS, ERP, automação e agentes de IA.",
+        content:
+          "Sites, aplicativos, software personalizado, SaaS, ERP, agentes de IA e automação. Criamos o produto sob medida para resolver o problema real da sua empresa.",
       },
-      { property: "og:locale", content: "pt_BR" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Software house: Soluções sob medida para o seu negócio" },
+      {
+        name: "twitter:description",
+        content:
+          "Sites, aplicativos, software personalizado, SaaS, ERP, agentes de IA e automação. Criamos o produto sob medida para resolver o problema real da sua empresa.",
+      },
+      { property: "og:image", content: "https://www.veriweb.com.br/og-image.png" },
+      {
+        property: "og:image:alt",
+        content:
+          "Página inicial da VERIWEB: software house, soluções sob medida e ilustração digital.",
+      },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://www.veriweb.com.br/og-image.png" },
+      {
+        name: "twitter:image:alt",
+        content:
+          "Página inicial da VERIWEB: software house, soluções sob medida e ilustração digital.",
+      },
     ],
   }),
   component: Index,
@@ -151,11 +171,11 @@ function Index() {
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
               <div>
                 <p className="reveal mb-6 inline-flex items-center rounded-full border border-input px-4 py-1.5 text-[13px] font-semibold uppercase tracking-[0.12em] text-cyan">
-                  AGÊNCIA DIGITAL
+                  Estúdio virtual
                 </p>
                 <h1 className="reveal max-w-2xl font-display text-[28px] font-black leading-[36px] sm:text-[34px] sm:leading-[42px] md:text-5xl md:leading-[56px] lg:text-6xl lg:leading-[68px]">
-                  Soluções digitais <span className="text-gradient-web">personalizadas</span> para o
-                  seu negócio
+                  Software house: Soluções <span className="text-gradient-web">sob medida</span>{" "}
+                  para o seu negócio
                 </h1>
                 <p className="reveal mt-6 max-w-xl text-[17px] leading-7 text-muted-foreground md:text-[19px] md:leading-[30px]">
                   Sites, aplicativos, software personalizado, SaaS, ERP, agentes de IA e automação.
@@ -199,7 +219,7 @@ function Index() {
               title="Nossos Serviços"
               sub="Do primeiro site ao sistema que roda a sua operação: soluções sustentáveis e escaláveis."
             />
-            <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {services.map(({ icon: Icon, t, d }, i) => (
                 <li
                   key={t}
@@ -264,7 +284,7 @@ function Index() {
                 id="cta-title"
                 className="mx-auto max-w-3xl font-display text-2xl font-bold leading-8 md:text-4xl md:leading-[48px]"
               >
-                Pronto para transformar sua ideia em realidade digital?
+                Qual problema do seu negócio podemos resolver?
               </h2>
               <a href={cta} target="_blank" rel="noopener noreferrer" className="btn-signal mt-8">
                 <WhatsAppIcon size={18} /> Solicitar orçamento gratuito

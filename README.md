@@ -17,6 +17,8 @@ Outros comandos: `npm run build`, `npm run preview`, `npm run lint`, `npm run fo
 | `src/lib/site.ts` | **WhatsApp, e-mail e links das redes sociais** (um lugar só) |
 | `src/lib/content.ts` | Textos: menu, serviços, etapas, FAQ |
 | `src/routes/index.tsx` | Estrutura da página e textos do topo/rodapé |
+| `public/og-image.svg`, `public/og-image.png` | Imagem de compartilhamento; manter alinhada ao hero da home |
+| `public/sitemap.xml`, `public/robots.txt` | Sitemap e instruções para mecanismos de busca |
 | `src/components/ContactForm.tsx` | Formulário de contato |
 | `public/logo-horizontal.svg` | Logo do topo e do rodapé (basta substituir o arquivo) |
 | `public/favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | Ícone da aba e do celular |
@@ -27,7 +29,8 @@ Outros comandos: `npm run build`, `npm run preview`, `npm run lint`, `npm run fo
 
 - Confirmar que o endereço configurado em `EMAIL` recebe mensagens.
 - Conferir se os links em `SOCIAL_LINKS` apontam para os perfis corretos.
-- Adicionar uma imagem de compartilhamento (`og:image`) se quiser prévia bonita no WhatsApp/LinkedIn.
+- Conferir `public/sitemap.xml` e manter a data `lastmod` atualizada após alterações relevantes no site.
+- Conferir se `og:image` aponta para a imagem publicada em `public/og-image.png`.
 
 ## Publicar em hospedagem Node.js
 
