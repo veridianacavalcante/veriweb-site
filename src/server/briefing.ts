@@ -1,5 +1,3 @@
-import { env } from "node:process";
-
 const MAX_PDF_SIZE = 5 * 1024 * 1024;
 const MAX_REQUEST_SIZE = MAX_PDF_SIZE + 32 * 1024;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
@@ -187,11 +185,11 @@ function getEmailText(fields: BriefingFields, date: string): string {
 }
 
 function getSmtpConfig() {
-  const host = env["SMTP_HOST"]?.trim();
-  const user = env["SMTP_USER"]?.trim();
-  const pass = env["SMTP_PASS"];
-  const port = Number(env["SMTP_PORT"] || 465);
-  const to = env["BRIEFING_TO"]?.trim() || "veri@veriweb.com.br";
+  const host = process.env["SMTP_HOST"]?.trim();
+  const user = process.env["SMTP_USER"]?.trim();
+  const pass = process.env["SMTP_PASS"];
+  const port = Number(process.env["SMTP_PORT"] || 465);
+  const to = process.env["BRIEFING_TO"]?.trim() || "veri@veriweb.com.br";
 
   if (!host || !user || !pass || !Number.isInteger(port) || port !== 465) return null;
   if (user.toLowerCase() !== "veri@veriweb.com.br") return null;
