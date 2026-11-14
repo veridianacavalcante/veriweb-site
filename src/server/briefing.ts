@@ -3,6 +3,14 @@ const MAX_REQUEST_SIZE = MAX_PDF_SIZE + 32 * 1024;
 const RATE_WINDOW_MS = 60 * 60 * 1000;
 const RATE_LIMIT = 5;
 const MAX_RATE_ENTRIES = 10_000;
+const ALLOWED_ORIGINS = new Set([
+  "https://veriweb.com.br",
+  "https://www.veriweb.com.br",
+  "http://127.0.0.1:8080",
+  "http://localhost:8080",
+  "http://127.0.0.1:3000",
+  "http://localhost:3000",
+]);
 
 type RateEntry = { count: number; resetAt: number };
 type BriefingFields = {
@@ -201,7 +209,7 @@ export async function handleBriefingRequest(request: Request): Promise<Response>
   const origin = request.headers.get("origin");
   if (origin) {
     try {
-      if (new URL(origin).origin !== new URL(request.url).origin) {
+      if (!ALLOWED_ORIGINS.has(new URL(origin).origin)) {
         return jsonResponse(403, { ok: false, message: "Origem da requisição não permitida." });
       }
     } catch {
