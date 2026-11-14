@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiBriefingRouteImport } from './routes/api/briefing'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiBriefingRoute = ApiBriefingRouteImport.update({
+  id: '/api/briefing',
+  path: '/api/briefing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/briefing': typeof ApiBriefingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/briefing': typeof ApiBriefingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/briefing': typeof ApiBriefingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/api/briefing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/api/briefing'
+  id: '__root__' | '/' | '/api/briefing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiBriefingRoute: typeof ApiBriefingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/briefing': {
+      id: '/api/briefing'
+      path: '/api/briefing'
+      fullPath: '/api/briefing'
+      preLoaderRoute: typeof ApiBriefingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiBriefingRoute: ApiBriefingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
