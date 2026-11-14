@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { handleBriefingRequest } from "../../server/briefing";
-
 export const Route = createFileRoute("/api/briefing")({
   server: {
     handlers: {
-      POST: async ({ request }) => handleBriefingRequest(request),
+      POST: async ({ request }) => {
+        const { handleBriefingRequest } = await import("../../server/briefing");
+        return handleBriefingRequest(request);
+      },
     },
   },
 });

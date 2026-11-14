@@ -1,4 +1,3 @@
-import nodemailer from "nodemailer";
 import { env } from "node:process";
 
 const MAX_PDF_SIZE = 5 * 1024 * 1024;
@@ -294,17 +293,18 @@ export async function handleBriefingRequest(request: Request): Promise<Response>
   }
 
   const date = new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
-  const transporter = nodemailer.createTransport({
-    host: smtp.host,
-    port: smtp.port,
-    secure: true,
-    auth: { user: smtp.user, pass: smtp.pass },
-    connectionTimeout: 10_000,
-    greetingTimeout: 10_000,
-    socketTimeout: 10_000,
-  });
-
   try {
+    const { default: nodemailer } = await import("nodemailer");
+    const transporter = nodemailer.createTransport({
+      host: smtp.host,
+      port: smtp.port,
+      secure: true,
+      auth: { user: smtp.user, pass: smtp.pass },
+      connectionTimeout: 10_000,
+      greetingTimeout: 10_000,
+      socketTimeout: 10_000,
+    });
+
     await transporter.sendMail({
       from: { name: "VERIWEB Briefing", address: "veri@veriweb.com.br" },
       to: smtp.to,
